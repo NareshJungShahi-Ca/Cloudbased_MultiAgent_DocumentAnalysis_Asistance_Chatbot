@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.so
+*.docx
 
 # Environment Variable 
 .env
@@ -16,3 +17,17 @@ Secrets/
 
 # Data and outputs
 data/
+
+ LaTeX junk (VERY important for your project)
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+
+# Mac system files
+.DS_Store
+
+# Large PDF files
+*.pdf

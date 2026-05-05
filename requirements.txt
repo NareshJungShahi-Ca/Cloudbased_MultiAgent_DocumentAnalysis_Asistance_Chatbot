@@ -1,6 +1,5 @@
 boto3==1.40.1
 fastapi==0.116.1
-fitz==0.0.1.dev2
 langchain==0.3.27
 langchain_google_genai==2.1.9
 langchain_huggingface==0.3.1
@@ -9,3 +8,5 @@ langgraph==0.6.4
 pydantic==2.11.7
 python-dotenv==1.1.1
 qdrant_client==1.15.1
+PyMuPDF==1.26.3
+python-multipart==0.0.20

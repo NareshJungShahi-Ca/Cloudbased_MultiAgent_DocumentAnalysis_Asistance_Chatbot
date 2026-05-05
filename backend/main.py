@@ -54,24 +54,24 @@ async def upload_file(file: Optional[UploadFile] = File(None),prompt: Optional[s
     # Uplaoding the file in Amazon aws S3
 
     if file:
-        file_ext = file.filename.split(".")[-1]
-        s3_key = f"upload/{uuid.uuid4()}.{file_ext}" # Generate unique file name
-        try:
-            s3.upload_fileobj(file.file, AWS_BUCKET, s3_key) # Upload to S3
-            # file_path = f"https://{AWS_BUCKET}.s3.amazonaws.com/{s3_key}" # Generate url
-            presigned_url = s3.generate_presigned_url(
-            ClientMethod='get_object',
-            Params={'Bucket': AWS_BUCKET, 'Key': s3_key},
-            ExpiresIn=900  # 15 minutes
-        )
-            file_path = presigned_url
-        except Exception as e:
-            return JSONResponse({"status": "error", "detail": str(e)}, status_code=500)
+        # file_ext = file.filename.split(".")[-1]
+        # s3_key = f"upload/{uuid.uuid4()}.{file_ext}" # Generate unique file name
+        # try:
+        #     s3.upload_fileobj(file.file, AWS_BUCKET, s3_key) # Upload to S3
+        #     # file_path = f"https://{AWS_BUCKET}.s3.amazonaws.com/{s3_key}" # Generate url
+        #     presigned_url = s3.generate_presigned_url(
+        #     ClientMethod='get_object',
+        #     Params={'Bucket': AWS_BUCKET, 'Key': s3_key},
+        #     ExpiresIn=900  # 15 minutes
+        # )
+        #     file_path = presigned_url
+        # except Exception as e:
+        #     return JSONResponse({"status": "error", "detail": str(e)}, status_code=500)
         
-        # file_path = os.path.join("/Users/nareshjungshahi/Documents/Cloud_Computing/Data", file.filename)
-        # with open(file_path, 'wb') as f:
-        #     shutil.copyfileobj(file.file, f)
-        # file.file.close() 
+        file_path = os.path.join("/Users/nareshjungshahi/Documents/Cloud_Computing/Data", file.filename)
+        with open(file_path, 'wb') as f:
+            shutil.copyfileobj(file.file, f)
+        file.file.close() 
 
         
     # Input for Agents
